@@ -20,7 +20,7 @@ import { TermsOfUseComponent } from './terms-of-use.component';
   ]
 })
 export class AppComponent {
-  title = 'Ranking do Copo';
+  title = 'A Liga dos Botecos';
   activeGame = signal<string | null>(null);
   currentPage = signal<'home' | 'privacy' | 'terms'>('home');
 

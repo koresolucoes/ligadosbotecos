@@ -4,10 +4,10 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-sm">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" (click)="$event.preventDefault(); navigateTo('home')" class="cursor-pointer">
-        <img src="https://i.imgur.com/nAzyWrP.png" alt="Ranking do Copo Logo" class="h-8 w-auto">
+        <img src="https://i.imgur.com/QLbZpgd.png" alt="A Liga dos Botecos Logo" class="h-10 w-auto">
       </a>
       <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="hidden md:inline-block bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300">
-        Agende uma Demo
+        Ativar no meu Bar
       </a>
     </nav>
   </header>
@@ -16,44 +16,49 @@
     @case ('home') {
       <main class="relative">
         <!-- 1. Hero Section -->
-        <section class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#4c1d95]">
+        <section class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#4c1d95] overflow-hidden">
           <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
-              Transforme seu Bar em uma Arena de Competição e Fidelidade.
+            <div class="animate-fade-in-down" style="animation-delay: 0.2s;">
+              <img ngSrc="https://i.imgur.com/QLbZpgd.png" alt="A Liga dos Botecos Logo" width="1000" height="1000" priority class="mx-auto mb-8 w-48 md:w-64 lg:w-72 transition-transform duration-300 hover:scale-105">
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 animate-fade-in-down" style="animation-delay: 0.4s;">
+              Entre na Liga. Domine a Cena.
             </h1>
-            <h3 class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-8">
-              Aumente o consumo, crie uma comunidade de clientes fiéis e domine a cena noturna com a plataforma de gamificação definitiva para bares.
+            <h3 class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 animate-fade-in-down" style="animation-delay: 0.6s;">
+              A competição que vai lotar seu bar e transformar clientes em torcedores fiéis. Inscreva seu bar na liga, de graça.
             </h3>
-            <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
-              Agende uma Demonstração Gratuita
-            </a>
+            <div class="animate-fade-in-down" style="animation-delay: 0.8s;">
+              <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg animate-pulse">
+                Ativar no meu bar (É grátis!)
+              </a>
+            </div>
           </div>
         </section>
 
         <!-- 2. Pain Section -->
         <section class="py-20 bg-slate-800">
           <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12">Seu bar está operando no potencial máximo?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">E aí, &quot;tá bão&quot; mesmo ou &quot;tá só pelejando&quot;?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div class="bg-gray-900 p-6 rounded-lg text-left">
                 <span class="material-symbols-outlined text-4xl text-yellow-400 mb-4">hourglass_empty</span>
-                <h4 class="text-xl font-bold mb-2">Mesas Vazias em Dias de Semana?</h4>
-                <p class="text-gray-400">A dificuldade de atrair público em dias de baixo movimento, impactando diretamente o faturamento.</p>
+                <h4 class="text-xl font-bold mb-2">Quarta-feira das moscas?</h4>
+                <p class="text-gray-400">Aquele dia fraco que dói no bolso e desanima a equipe. A gente sabe como é.</p>
               </div>
               <div class="bg-gray-900 p-6 rounded-lg text-left">
                 <span class="material-symbols-outlined text-4xl text-yellow-400 mb-4">group_off</span>
-                <h4 class="text-xl font-bold mb-2">Clientes de Uma Só Visita?</h4>
-                <p class="text-gray-400">A luta para transformar clientes ocasionais em frequentadores assíduos que escolhem o seu bar como ponto de encontro.</p>
+                <h4 class="text-xl font-bold mb-2">Cliente &quot;foguetinho&quot;?</h4>
+                <p class="text-gray-400">Ele aparece, consome, e some pra nunca mais. Difícil criar uma turma fiel assim.</p>
               </div>
               <div class="bg-gray-900 p-6 rounded-lg text-left">
                 <span class="material-symbols-outlined text-4xl text-yellow-400 mb-4">trending_down</span>
-                <h4 class="text-xl font-bold mb-2">Marketing que Não Converte?</h4>
-                <p class="text-gray-400">Investimento em divulgação com baixo ROI e dificuldade em medir o impacto real das ações.</p>
+                <h4 class="text-xl font-bold mb-2">Panfleto que vira lixo?</h4>
+                <p class="text-gray-400">Você investe em divulgação, mas não vê o resultado no caixa no fim do mês.</p>
               </div>
               <div class="bg-gray-900 p-6 rounded-lg text-left">
                  <span class="material-symbols-outlined text-4xl text-yellow-400 mb-4">bolt</span>
-                <h4 class="text-xl font-bold mb-2">Concorrência Acirrada?</h4>
-                <p class="text-gray-400">A constante batalha para se diferenciar em um mercado saturado e oferecer algo que os outros não têm.</p>
+                <h4 class="text-xl font-bold mb-2">O vizinho tá sempre cheio?</h4>
+                <p class="text-gray-400">Se destacar na capital dos botecos não é fácil. Tem que ter um &quot;trem&quot; a mais.</p>
               </div>
             </div>
           </div>
@@ -63,14 +68,14 @@
         <section class="py-20 bg-gray-900">
           <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">Apresentamos o Ranking do Copo: Onde Cada Gole Conta.</h2>
-              <p class="text-gray-300 mb-4 text-lg">O Ranking do Copo não é apenas um aplicativo, é um ecossistema de engajamento completo projetado para o DNA do seu bar. Nós transformamos a experiência do cliente, convertendo visitas passivas em uma jornada interativa de competição, recompensas e diversão.</p>
-              <p class="text-gray-300 text-lg">Através de uma interface intuitiva e viciante, seus clientes competem por pontos, cumprem missões e desbloqueiam prêmios, criando um motivo irresistível para voltar sempre e, claro, consumir mais.</p>
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">A Liga dos Botecos: O Campeonato que seu bar precisava.</h2>
+              <p class="text-gray-300 mb-4 text-lg">Pensa numa ferramenta que transforma seu cliente comum no maior fã do seu boteco. A Liga dos Botecos faz isso. A gente gamifica a experiência: cada cerveja, cada porção, cada resenha vira ponto para uma competição divertida entre amigos.</p>
+              <p class="text-gray-300 text-lg">Com um app fácil de usar, seus clientes entram na disputa, cumprem missões e trocam pontos por prêmios. É o motivo que faltava pra galera voltar sempre e, claro, consumir mais. E o melhor? É de graça.</p>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative w-72 h-[36rem] bg-slate-800 rounded-[2.5rem] border-[14px] border-black shadow-2xl">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-6 bg-black rounded-b-xl"></div>
-                    <img ngSrc="https://i.imgur.com/ABEhDDu.png" alt="App Mockup" class="w-full h-full object-cover rounded-[1.5rem]" width="300" height="600" />
+                    <img ngSrc="https://i.imgur.com/ABEhDDu.png" alt="App Mockup" class="w-full h-full object-cover rounded-[1.5rem]" width="1080" height="2400" />
                 </div>
             </div>
           </div>
@@ -86,38 +91,38 @@
               
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">leaderboard</span>
-                <h3 class="text-2xl font-bold mb-2">Rankings em Tempo Real</h3>
-                <p class="text-gray-400">Crie uma competição saudável que incentiva o consumo. O "Hall da Fama Global" posiciona seu bar em um cenário maior.</p>
+                <h3 class="text-2xl font-bold mb-2">A Disputa na Mesa de Bar</h3>
+                <p class="text-gray-400">Crie uma competição que faz a galera consumir mais pra virar o &quot;rei do boteco&quot;. O ranking é atualizado na hora!</p>
               </div>
 
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">military_tech</span>
-                <h3 class="text-2xl font-bold mb-2">Missões e Recompensas</h3>
-                <p class="text-gray-400">Direcione o consumo para produtos de maior margem e recompense a fidelidade. A IA ajuda a criar missões criativas.</p>
+                <h3 class="text-2xl font-bold mb-2">Missões Estratégicas e Marketing Viral</h3>
+                <p class="text-gray-400">Crie missões customizadas para direcionar o consumo ou engajar nas redes sociais, como "Tire uma foto e marque o bar". Transforme clientes em divulgadores!</p>
               </div>
               
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">stadia_controller</span>
-                <h3 class="text-2xl font-bold mb-2">Jogos Interativos e Customizáveis</h3>
-                <p class="text-gray-400">Adapte os jogos à temática do seu bar com Trivias personalizadas, Jogo da Velha, Ache o Copo, e crie salas para Cara ou Coroa multiplayer em tempo real.</p>
+                <h3 class="text-2xl font-bold mb-2">Jogos, Trivias e Desafios em Tempo Real</h3>
+                <p class="text-gray-400">Mantenha a galera no bar com jogos interativos! Crie trivias personalizadas, ofereça prêmios na roleta e promova desafios entre clientes como Cara ou Coroa e Batalha Naval.</p>
               </div>
 
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">qr_code_scanner</span>
-                <h3 class="text-2xl font-bold mb-2">Check-in via QR Code</h3>
-                <p class="text-gray-400">Garanta que apenas clientes presentes participem. Crie QR Codes para mesas e entenda o fluxo de clientes.</p>
+                <h3 class="text-2xl font-bold mb-2">Garanta que é Cliente Mesmo</h3>
+                <p class="text-gray-400">Acabou o &quot;jeitinho&quot;. Só quem está no seu bar pode jogar. Check-in fácil com QR Code na mesa.</p>
               </div>
 
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">bar_chart</span>
-                <h3 class="text-2xl font-bold mb-2">Dashboard de Analytics</h3>
-                <p class="text-gray-400">Entenda seus clientes mais valiosos e o engajamento geral. Tome decisões baseadas em dados reais.</p>
+                <h3 class="text-2xl font-bold mb-2">Entenda sua Galera</h3>
+                <p class="text-gray-400">Veja quem são seus clientes mais fiéis e o que eles mais consomem. Dados pra tomar decisão esperta.</p>
               </div>
 
               <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">menu_book</span>
-                <h3 class="text-2xl font-bold mb-2">Cardápio Digital Interativo</h3>
-                <p class="text-gray-400">Gerencie seu cardápio online. Clientes o exploram no app enquanto acumulam pontos, facilitando novos pedidos e aumentando o consumo.</p>
+                <h3 class="text-2xl font-bold mb-2">Seu Cardápio na Mão do Cliente</h3>
+                <p class="text-gray-400">Cliente explora seu cardápio, faz o pedido e acumula pontos. Tudo no app, sem complicação.</p>
               </div>
 
             </div>
@@ -130,7 +135,7 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12">Experimente Nossos Jogos!</h2>
 
             @if (!activeGame()) {
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Card for Tic Tac Toe -->
                 <div (click)="selectGame('tictactoe')" class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">grid_on</span>
@@ -148,6 +153,20 @@
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">casino</span>
                   <h3 class="text-2xl font-bold mb-2">Roleta de Shot</h3>
                   <p class="text-gray-400">Sorte do dia! Gire a roleta uma vez por dia para ganhar prêmios incríveis.</p>
+                </div>
+                <!-- Card for Coin Flip -->
+                <div class="bg-slate-800 p-8 rounded-lg flex flex-col items-center relative">
+                  <div class="absolute top-2 right-2 bg-sky-600 text-white text-xs font-bold px-2 py-1 rounded-full">NO APP</div>
+                  <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">toll</span>
+                  <h3 class="text-2xl font-bold mb-2">Cara ou Coroa</h3>
+                  <p class="text-gray-400">Desafie outro cliente para uma aposta rápida valendo pontos. Simples, eletrizante e em tempo real no app!</p>
+                </div>
+                <!-- Card for Battleship -->
+                <div class="bg-slate-800 p-8 rounded-lg flex flex-col items-center relative">
+                  <div class="absolute top-2 right-2 bg-sky-600 text-white text-xs font-bold px-2 py-1 rounded-full">NO APP</div>
+                  <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">directions_boat</span>
+                  <h3 class="text-2xl font-bold mb-2">Batalha Naval</h3>
+                  <p class="text-gray-400">Um clássico da estratégia. Desafie a mesa ao lado e afunde a frota inimiga! Jogo em tempo real disponível no app.</p>
                 </div>
               </div>
             } @else {
@@ -198,25 +217,19 @@
           </div>
         </section>
 
-        <!-- 7. Pricing Section -->
+        <!-- 7. "Why Free?" Section -->
         <section id="pricing" class="py-20 bg-slate-800">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Um Investimento que se Paga em Rodadas.</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Uai, mas de graça? Qual a pegadinha?</h2>
                 <div class="flex justify-center mt-10">
-                    <div class="bg-gray-900 rounded-lg p-8 border-2 border-yellow-400 shadow-2xl max-w-md w-full">
-                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Plano Mestre Cervejeiro</h3>
-                        <p class="text-5xl font-black my-6">R$149<span class="text-2xl font-bold text-gray-400">,90 /mês</span></p>
-                        <ul class="text-left space-y-3 text-gray-300 mb-8">
-                            <li class="flex items-center"><span class="material-symbols-outlined text-green-500 mr-2">check_circle</span> Todos os Jogos e Funcionalidades</li>
-                            <li class="flex items-center"><span class="material-symbols-outlined text-green-500 mr-2">check_circle</span> Painel de Gerenciamento Completo</li>
-                            <li class="flex items-center"><span class="material-symbols-outlined text-green-500 mr-2">check_circle</span> Clientes e Check-ins Ilimitados</li>
-                            <li class="flex items-center"><span class="material-symbols-outlined text-green-500 mr-2">check_circle</span> Suporte Técnico Prioritário</li>
-                            <li class="flex items-center"><span class="material-symbols-outlined text-green-500 mr-2">check_circle</span> Analytics de Engajamento</li>
-                        </ul>
-                        <a href="#" class="w-full inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
-                            Comece seu Teste Grátis de 14 Dias
+                    <div class="bg-gray-900 rounded-lg p-8 max-w-2xl w-full flex flex-col items-center">
+                        <span class="material-symbols-outlined text-6xl text-yellow-400 mb-6">psychology</span>
+                        <p class="text-lg text-gray-300 mb-8 max-w-xl">
+                            Nenhuma pegadinha. Acreditamos que todo bar, do pequeno ao grande, merece uma ferramenta para crescer. Nosso objetivo é criar a maior comunidade de botequeiros do Brasil, e para isso, precisamos dos melhores bares de BH com a gente. A Liga dos Botecos é e sempre será gratuita para você, dono de bar.
+                        </p>
+                        <a href="#" (click)="$event.preventDefault()" class="w-full max-w-md inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                            Quero no meu bar agora!
                         </a>
-                        <p class="text-gray-500 text-sm mt-4">Cancele quando quiser. Sem taxas escondidas.</p>
                     </div>
                 </div>
             </div>
@@ -225,10 +238,10 @@
         <!-- 8. Final CTA Section -->
         <section class="py-20 bg-purple-800 bg-gradient-to-r from-purple-700 to-indigo-800">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pronto para transformar a experiência do seu bar?</h2>
-                <p class="text-lg text-purple-200 mb-8 max-w-2xl mx-auto">Junte-se aos bares que estão redefinindo o que significa entretenimento. Deixe a concorrência para trás.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Bora inscrever seu bar na Liga dos Botecos?</h2>
+                <p class="text-lg text-purple-200 mb-8 max-w-2xl mx-auto">Junte-se aos bares que estão criando uma torcida fiel e deixando a concorrência pra trás. Entre na liga, de graça.</p>
                 <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
-                    Agende uma Demonstração Gratuita
+                    Começar Agora (É Grátis)
                 </a>
             </div>
         </section>
@@ -238,9 +251,9 @@
       <footer class="bg-gray-900 border-t border-gray-800">
           <div class="container mx-auto px-6 py-8 text-center text-gray-400">
               <a href="#" (click)="$event.preventDefault(); navigateTo('home')" class="cursor-pointer inline-block">
-                <img src="https://i.imgur.com/nAzyWrP.png" alt="Ranking do Copo Logo" class="h-8 w-auto mx-auto mb-4">
+                <img src="https://i.imgur.com/QLbZpgd.png" alt="A Liga dos Botecos Logo" class="h-10 w-auto mx-auto mb-4">
               </a>
-              <p>&copy; 2024 Ranking do Copo. Todos os direitos reservados.</p>
+              <p>&copy; 2024 A Liga dos Botecos. Todos os direitos reservados.</p>
               <div class="flex justify-center space-x-4 mt-4">
                   <a href="#" class="hover:text-white">Contato</a>
                   <a href="#" (click)="$event.preventDefault(); navigateTo('privacy')" class="hover:text-white cursor-pointer">Política de Privacidade</a>

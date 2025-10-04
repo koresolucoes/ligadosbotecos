@@ -19,27 +19,27 @@ import { Component, ChangeDetectionStrategy, output } from '@angular/core';
             <div class="space-y-8">
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">1. Aceitação dos Termos</h4>
-                    <p class="text-gray-400">Ao acessar ou usar a plataforma Ranking do Copo, você concorda em cumprir estes Termos de Serviço. Se você não concordar com estes termos, não utilize a plataforma.</p>
+                    <p class="text-gray-400">Ao acessar ou usar a plataforma A Liga dos Botecos, você concorda em cumprir estes Termos de Serviço e a nossa Política de Privacidade. Se você não concordar, não utilize a plataforma.</p>
                 </div>
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-400">2. Uso da Plataforma</h4>
-                    <p class="text-gray-400">Você concorda em usar a plataforma apenas para fins legais e de maneira que não infrinja os direitos de, restrinja ou iniba o uso e aproveitamento da plataforma por qualquer terceiro. O uso de linguagem ofensiva ou conduta disruptiva não será tolerado.</p>
+                    <h4 class="text-xl font-bold mb-2 text-yellow-400">2. Uso da Plataforma e Coleta de Dados</h4>
+                    <p class="text-gray-400">Você concorda em usar a plataforma para fins legais e de maneira apropriada. Ao participar, você reconhece e concorda com a coleta de dados de uso e consumo, conforme detalhado em nossa Política de Privacidade, para fins de melhoria do serviço e em conformidade com a LGPD.</p>
                 </div>
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">3. Contas de Usuário</h4>
-                    <p class="text-gray-400">Para participar dos rankings, você deve criar uma conta. Você é responsável por manter a confidencialidade de sua conta e senha e por todas as atividades que ocorram em sua conta.</p>
+                    <p class="text-gray-400">Você é responsável por manter a confidencialidade de sua conta e por todas as atividades que ocorram nela. A criação de contas com informações falsas é proibida.</p>
                 </div>
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">4. Pontuação e Recompensas</h4>
-                    <p class="text-gray-400">Os pontos e recompensas são concedidos a critério do bar e da plataforma Ranking do Copo. Tentativas de manipular o sistema de pontuação resultarão na suspensão da conta. As recompensas não têm valor monetário e não podem ser trocadas por dinheiro.</p>
+                    <p class="text-gray-400">Os pontos e recompensas são concedidos a critério do bar e da plataforma A Liga dos Botecos. Tentativas de manipular o sistema de pontuação resultarão na suspensão da conta. As recompensas não têm valor monetário.</p>
                 </div>
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">5. Encerramento</h4>
-                    <p class="text-gray-400">Reservamo-nos o direito de suspender ou encerrar sua conta a qualquer momento, sem aviso prévio, por violação destes Termos ou por qualquer outro motivo que considerarmos apropriado.</p>
+                    <p class="text-gray-400">Reservamo-nos o direito de suspender ou encerrar sua conta a qualquer momento, sem aviso prévio, por violação destes Termos ou por conduta que considerarmos prejudicial à comunidade ou à plataforma.</p>
                 </div>
             </div>
         </div>
