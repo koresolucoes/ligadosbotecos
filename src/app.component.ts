@@ -23,9 +23,19 @@ export class AppComponent {
   title = 'A Liga dos Botecos';
   activeGame = signal<string | null>(null);
   currentPage = signal<'home' | 'privacy' | 'terms'>('home');
+  isMenuOpen = signal(false);
 
   selectGame(game: string | null) {
     this.activeGame.set(game);
+  }
+
+  toggleMenu() {
+    this.isMenuOpen.update(open => !open);
+  }
+
+  closeMenuAndNavigate(page: 'home' | 'privacy' | 'terms', anchor?: string) {
+    this.isMenuOpen.set(false);
+    this.navigateTo(page, anchor);
   }
 
   navigateTo(page: 'home' | 'privacy' | 'terms', anchor?: string) {
