@@ -1,37 +1,29 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupabaseService {
-  private supabase: SupabaseClient;
 
-  constructor() {
-    const supabaseUrl = process.env.SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_KEY;
-
-    if (!supabaseUrl || !supabaseKey) {
-        throw new Error("Supabase URL and Key must be provided in environment variables.");
-    }
-    this.supabase = createClient(supabaseUrl, supabaseKey);
-  }
+  constructor() { }
 
   async addToWaitingList(name: string, email: string, barName: string) {
-    const { data, error } = await this.supabase
-      .from('waiting_list')
-      .insert([
-        { name, email, bar_name: barName },
-      ]);
+    const response = await fetch('/api/add-to-waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, barName }),
+    });
 
-    if (error) {
-      console.error('Error adding to waiting list:', error);
-      if (error.code === '23505') { // Unique constraint violation (duplicate email)
-          throw new Error('Este e-mail já está cadastrado na lista de espera.');
-      }
-      throw new Error('Ocorreu um erro ao tentar o registro. Tente novamente.');
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => {
+        // Handle cases where the response is not valid JSON
+        throw new Error('Ocorreu um erro de comunicação com o servidor.');
+      });
+      throw new Error(errorData.message || 'Ocorreu um erro ao enviar o formulário.');
     }
 
-    return data;
+    return response.json();
   }
 }
