@@ -1,45 +1,37 @@
 import { Injectable } from '@angular/core';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SupabaseService {
+  private supabase: SupabaseClient;
 
-  constructor() { }
+  constructor() {
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+        throw new Error("Supabase URL and Key must be provided in environment variables.");
+    }
+    this.supabase = createClient(supabaseUrl, supabaseKey);
+  }
 
   async addToWaitingList(name: string, email: string, barName: string) {
-    // This is the more secure approach: calling a dedicated backend endpoint
-    // which then communicates with Supabase using a secret key.
-    const apiEndpoint = '/api/add-to-waitlist'; 
+    const { data, error } = await this.supabase
+      .from('waiting_list')
+      .insert([
+        { name, email, bar_name: barName },
+      ]);
 
-    try {
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          barName: barName,
-        }),
-      });
-
-      const responseData = await response.json();
-
-      if (response.ok) {
-        return responseData;
-      } else {
-        // The backend function will provide a clear error message
-        throw new Error(responseData.message || 'Ocorreu um erro ao tentar o registro. Tente novamente.');
+    if (error) {
+      console.error('Error adding to waiting list:', error);
+      if (error.code === '23505') { // Unique constraint violation (duplicate email)
+          throw new Error('Este e-mail já está cadastrado na lista de espera.');
       }
-    } catch (error) {
-      console.error('Erro ao chamar a API para adicionar à lista de espera:', error);
-      if (error instanceof Error) {
-        // Re-throw the specific error message from the backend
-        throw error;
-      }
-      throw new Error('Ocorreu um erro de comunicação. Verifique sua conexão e tente novamente.');
+      throw new Error('Ocorreu um erro ao tentar o registro. Tente novamente.');
     }
+
+    return data;
   }
 }
