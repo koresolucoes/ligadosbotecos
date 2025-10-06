@@ -13,6 +13,7 @@
         <a href="#features" (click)="$event.preventDefault(); navigateTo('home', '#features')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Recursos</a>
         <a href="#games" (click)="$event.preventDefault(); navigateTo('home', '#games')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Jogos</a>
         <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Preço</a>
+        <a href="#faq" (click)="$event.preventDefault(); navigateTo('home', '#faq')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">FAQ</a>
         <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300">
           Garanta sua Vaga
         </a>
@@ -34,6 +35,7 @@
           <a href="#features" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#features')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Recursos</a>
           <a href="#games" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#games')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Jogos</a>
           <a href="#pricing" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#pricing')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Preço</a>
+          <a href="#faq" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#faq')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
           <a href="#cadastro" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#cadastro')" class="mt-4 w-full max-w-xs text-center bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
             Garanta sua Vaga
           </a>
@@ -353,7 +355,32 @@
             </div>
         </section>
 
-        <!-- 9. Final CTA Section -->
+        <!-- 9. FAQ Section -->
+        <section id="faq" class="py-20 bg-gray-900">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold">Perguntas Frequentes (FAQ)</h2>
+              <p class="text-lg text-gray-400 mt-2">Tirando as principais dúvidas sobre A Liga dos Botecos.</p>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-4">
+              @for(faq of faqs; track $index) {
+                <div class="bg-slate-800 rounded-lg border border-gray-700 overflow-hidden transition-all duration-300">
+                  <button (click)="toggleFaq($index)" class="w-full flex justify-between items-center text-left p-6 font-semibold text-lg hover:bg-slate-700 focus:outline-none transition-colors">
+                    <span class="text-white">{{ faq.question }}</span>
+                    <span class="material-symbols-outlined text-yellow-400 transition-transform duration-300" [class.rotate-45]="openFaqIndex() === $index">add</span>
+                  </button>
+                  @if (openFaqIndex() === $index) {
+                    <div class="p-6 pt-0 text-gray-300">
+                      <p [innerHTML]="faq.answer"></p>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </section>
+
+        <!-- 10. Final CTA Section -->
         <section class="py-20 bg-purple-800 bg-gradient-to-r from-purple-700 to-indigo-800">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Bora inscrever seu bar na Liga dos Botecos?</h2>

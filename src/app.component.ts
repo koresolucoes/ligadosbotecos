@@ -42,6 +42,40 @@ export class AppComponent implements OnInit, OnDestroy {
   minutes = signal(0);
   seconds = signal(0);
 
+  // FAQ signal
+  openFaqIndex = signal<number | null>(null);
+
+  faqs = [
+    {
+      question: 'O que é exatamente "A Liga dos Botecos"?',
+      answer: 'É uma plataforma de gamificação gratuita que transforma a experiência no seu bar em uma competição divertida. Clientes acumulam pontos consumindo, cumprindo missões e jogando no app, o que aumenta a frequência, o consumo e a fidelidade deles.'
+    },
+    {
+      question: 'É realmente 100% gratuito para o bar? Qual é a pegadinha?',
+      answer: 'Sim, é e sempre será 100% gratuito para os bares. Não há pegadinha. Nosso modelo de negócio futuro será focado em parcerias com grandes marcas de bebidas e produtos que queiram se conectar com a nossa comunidade de botequeiros, mas nunca cobraremos dos estabelecimentos.'
+    },
+    {
+      question: 'Meu bar não usa o sistema Chefos ERP. Posso participar?',
+      answer: 'Com certeza! Embora a integração com o Chefos ERP automatize a pontuação, estamos desenvolvendo ativamente soluções para outros sistemas de PDV e também um método de validação manual via QR Code da nota fiscal. Inscreva-se como Bar Fundador para garantir sua vaga e ser o primeiro a saber das novas integrações.'
+    },
+    {
+      question: 'Como meus clientes usam o app? É complicado para eles?',
+      answer: 'É super simples. O cliente baixa o app, faz check-in no seu bar lendo um QR Code na mesa e começa a pontuar. A interface é intuitiva e focada na diversão, com rankings, missões claras e jogos fáceis de entender. O objetivo é engajar, não complicar.'
+    },
+    {
+      question: 'Que tipo de suporte vocês oferecem aos bares parceiros?',
+      answer: 'Oferecemos suporte completo. Para os Bares Fundadores, haverá um canal direto via WhatsApp para dúvidas e sugestões. Além disso, fornecemos material de marketing digital para divulgação, guias de melhores práticas para criar missões e um painel com dados sobre o engajamento dos seus clientes.'
+    },
+    {
+      question: 'Como posso customizar as "missões" para a realidade do meu bar?',
+      answer: 'Você terá acesso a um painel de controle onde poderá criar missões personalizadas. Quer aumentar a venda de um petisco específico? Crie uma missão "Experimente nossa porção de torresmo". Quer bombar sua terça-feira? Crie uma missão com pontos em dobro. As possibilidades são enormes para direcionar o consumo e o marketing.'
+    },
+    {
+      question: 'Quem são os fundadores por trás da Liga dos Botecos?',
+      answer: 'Somos um grupo de amigos de Belo Horizonte: um desenvolvedor de software, um especialista em marketing e um dono de bar. Cansados de ver bares incríveis lutando para atrair e manter clientes, decidimos unir nossas paixões — tecnologia, marketing e, claro, um bom boteco — para criar uma ferramenta que realmente ajuda os estabelecimentos locais que tanto amamos a prosperar.'
+    },
+  ];
+
   private intervalId: any;
   private supabaseService = inject(SupabaseService);
 
@@ -56,9 +90,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   startCountdown() {
-    // Set a launch date 30 days from now
-    const launchDate = new Date();
-    launchDate.setDate(launchDate.getDate() + 30);
+    // Set launch date to February 1, 2026
+    const launchDate = new Date('2026-02-01T00:00:00');
     const launchTime = launchDate.getTime();
 
     this.intervalId = setInterval(() => {
@@ -108,6 +141,10 @@ export class AppComponent implements OnInit, OnDestroy {
         window.scrollTo(0, 0);
       }
     }, 0);
+  }
+
+  toggleFaq(index: number) {
+    this.openFaqIndex.update(currentIndex => currentIndex === index ? null : index);
   }
 
   async onSubmit() {
