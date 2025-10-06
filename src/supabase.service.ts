@@ -22,10 +22,20 @@ export class SupabaseService {
 
     if (error) {
       console.error('Supabase error:', error);
-      // Handle unique constraint violation for email
+      
+      // Handle specific error codes for better user feedback
       if (error.code === '23505') {
         throw new Error('Este e-mail já está na lista de espera.');
       }
+      if (error.code === '42501') {
+        throw new Error('Erro de permissão no banco de dados. A política de segurança (RLS) pode estar bloqueando a inserção.');
+      }
+      
+      // Check for auth errors based on message content, as 401 might not be in the code
+      if (error.message.includes('Unauthorized') || error.message.includes('Invalid API key')) {
+        throw new Error('Erro de autenticação. Verifique se a chave da API está correta e ativa.');
+      }
+
       throw new Error('Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.');
     }
 
