@@ -24,7 +24,7 @@ import { Component, ChangeDetectionStrategy, output } from '@angular/core';
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">2. Informações que Coletamos</h4>
-                    <p class="text-gray-400">Coletamos informações necessárias para o funcionamento da plataforma, incluindo: (a) dados de cadastro (nome, e-mail); (b) dados de uso da plataforma (check-ins, pontos, jogos); e (c) dados de consumo e permanência no bar, de forma anônima e agregada, para análise de tendências. Não coletamos dados pessoais sensíveis, como informações sobre saúde, religião ou orientação política.</p>
+                    <p class="text-gray-400">Coletamos informações necessárias para o funcionamento da plataforma, incluindo: (a) dados de cadastro (nome, e-mail); (b) dados de uso da plataforma (check-ins, pontos, jogos); e (c) dados de consumo e permanência no bar, de forma anônima e agregada, para análise de tendências.<br><br>Adicionalmente, para análise de tráfego do site, utilizamos o Google Analytics, que coleta dados anônimos de navegação. Estas informações nos ajudam a melhorar nosso serviço e não incluem dados pessoais identificáveis.<br><br>Não coletamos dados pessoais sensíveis, como informações sobre saúde, religião ou orientação política.</p>
                 </div>
 
                 <div class="bg-gray-900 p-6 rounded-lg text-left">

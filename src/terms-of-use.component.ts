@@ -41,6 +41,11 @@ import { Component, ChangeDetectionStrategy, output } from '@angular/core';
                     <h4 class="text-xl font-bold mb-2 text-yellow-400">5. Encerramento</h4>
                     <p class="text-gray-400">Reservamo-nos o direito de suspender ou encerrar sua conta a qualquer momento, sem aviso prévio, por violação destes Termos ou por conduta que considerarmos prejudicial à comunidade ou à plataforma.</p>
                 </div>
+
+                <div class="bg-gray-900 p-6 rounded-lg text-left">
+                    <h4 class="text-xl font-bold mb-2 text-yellow-400">6. Análise de Dados com Google Analytics</h4>
+                    <p class="text-gray-400">Para melhorar sua experiência, utilizamos o Google Analytics para coletar dados anônimos sobre como os visitantes usam nosso site. Isso nos ajuda a entender o tráfego e a otimizar o conteúdo. O uso desses dados pelo Google é regido por sua própria política de privacidade. Nenhum dado pessoal identificável é compartilhado nesta análise.</p>
+                </div>
             </div>
         </div>
     </main>
