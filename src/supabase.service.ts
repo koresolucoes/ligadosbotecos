@@ -41,4 +41,16 @@ export class SupabaseService {
 
     return data;
   }
+
+  async unsubscribeFromWaitingList(email: string) {
+    const { error } = await this.supabase
+      .from('waiting_list')
+      .delete()
+      .eq('email', email);
+
+    if (error) {
+      console.error('Supabase unsubscribe error:', error);
+      throw new Error('Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde.');
+    }
+  }
 }

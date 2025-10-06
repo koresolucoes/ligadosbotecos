@@ -7,6 +7,7 @@ import { ShotRouletteGameComponent } from './shot-roulette-game.component';
 import { PrivacyPolicyComponent } from './privacy-policy.component';
 import { TermsOfUseComponent } from './terms-of-use.component';
 import { SupabaseService } from './supabase.service';
+import { UnsubscribeComponent } from './unsubscribe.component';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,14 @@ import { SupabaseService } from './supabase.service';
     NgOptimizedImage,
     PrivacyPolicyComponent,
     TermsOfUseComponent,
+    UnsubscribeComponent,
     FormsModule
   ]
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'A Liga dos Botecos';
   activeGame = signal<string | null>(null);
-  currentPage = signal<'home' | 'privacy' | 'terms'>('home');
+  currentPage = signal<'home' | 'privacy' | 'terms' | 'unsubscribe'>('home');
   isMenuOpen = signal(false);
 
   // Form signals
@@ -81,11 +83,23 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.startCountdown();
+    this.handleUrlHash();
   }
 
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
+    }
+  }
+
+  private handleUrlHash() {
+    const hash = window.location.hash.toLowerCase();
+    if (hash.startsWith('#unsubscribe')) {
+        this.currentPage.set('unsubscribe');
+    } else if (hash.startsWith('#privacy')) {
+        this.currentPage.set('privacy');
+    } else if (hash.startsWith('#terms')) {
+        this.currentPage.set('terms');
     }
   }
 
@@ -127,7 +141,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.navigateTo(page, anchor);
   }
 
-  navigateTo(page: 'home' | 'privacy' | 'terms', anchor?: string) {
+  navigateTo(page: 'home' | 'privacy' | 'terms' | 'unsubscribe', anchor?: string) {
     this.currentPage.set(page);
     
     // Use a timeout to ensure the DOM is updated before trying to scroll
