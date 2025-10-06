@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal, OnInit, OnDestroy, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { TicTacToeGameComponent } from './tic-tac-toe-game.component';
 import { FindTheCupGameComponent } from './find-the-cup-game.component';
 import { ShotRouletteGameComponent } from './shot-roulette-game.component';
@@ -17,7 +18,8 @@ import { SupabaseService } from './supabase.service';
     ShotRouletteGameComponent, 
     NgOptimizedImage,
     PrivacyPolicyComponent,
-    TermsOfUseComponent
+    TermsOfUseComponent,
+    FormsModule
   ]
 })
 export class AppComponent implements OnInit, OnDestroy {
