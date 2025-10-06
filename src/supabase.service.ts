@@ -8,24 +8,38 @@ export class SupabaseService {
   constructor() { }
 
   async addToWaitingList(name: string, email: string, barName: string) {
-    // A chamada agora é para o nosso próprio endpoint seguro, que por sua vez
-    // se comunica com o Supabase usando as credenciais do ambiente do servidor.
-    const response = await fetch('/api/add-to-waitlist', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, barName }),
-    });
+    // This is the more secure approach: calling a dedicated backend endpoint
+    // which then communicates with Supabase using a secret key.
+    const apiEndpoint = '/api/add-to-waitlist'; 
 
-    const result = await response.json();
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          barName: barName,
+        }),
+      });
 
-    if (!response.ok) {
-      // O endpoint da API retorna uma mensagem de erro clara, que podemos repassar.
-      // Lança um erro para que o componente possa capturá-lo e exibir o feedback correto.
-      throw new Error(result.message || 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+      const responseData = await response.json();
+
+      if (response.ok) {
+        return responseData;
+      } else {
+        // The backend function will provide a clear error message
+        throw new Error(responseData.message || 'Ocorreu um erro ao tentar o registro. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao chamar a API para adicionar à lista de espera:', error);
+      if (error instanceof Error) {
+        // Re-throw the specific error message from the backend
+        throw error;
+      }
+      throw new Error('Ocorreu um erro de comunicação. Verifique sua conexão e tente novamente.');
     }
-
-    return result;
   }
 }
