@@ -18,7 +18,7 @@ import { Component, ChangeDetectionStrategy, output } from '@angular/core';
             
             <div class="bg-gray-900 p-6 rounded-lg text-left mb-8">
                 <p class="text-gray-300">
-                    A plataforma <strong>"A Liga dos Botecos"</strong> é um serviço oferecido por <strong>LUCIANO NICOLAS QUIROZ GUTIERREZ DESENVOLVIMENTO DE SOFTWARE LTDA</strong>, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº <strong>63.135.423/0001-39</strong>.
+                    A plataforma <strong>"A Liga dos Botecos"</strong> é um serviço oferecido por <strong>KORE SERVICOS DE TECNOLOGIA</strong>, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº <strong>63.135.423/0001-39</strong>.
                 </p>
             </div>
 

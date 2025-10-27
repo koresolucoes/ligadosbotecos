@@ -47,48 +47,72 @@
   @switch (currentPage()) {
     @case ('home') {
       <main class="relative">
-        <!-- 1. Hero Section -->
-        <section id="cadastro" class="min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#4c1d95] overflow-hidden">
-          <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 animate-fade-in-down" style="animation-delay: 0.4s;">
-              A REVOLUÇÃO DOS BARES DE BH COMEÇA EM...
-            </h1>
-            
-            <!-- Countdown Timer -->
-            <div class="flex justify-center gap-2 md:gap-8 my-8 text-white animate-fade-in-down" style="animation-delay: 0.5s;">
-              <div class="text-center w-20 md:w-auto">
-                <div class="text-4xl md:text-6xl font-black bg-white/10 p-2 md:p-4 rounded-lg tabular-nums">{{ days() }}</div>
-                <div class="text-xs md:text-base mt-2 tracking-widest">DIAS</div>
-              </div>
-              <div class="text-center w-20 md:w-auto">
-                <div class="text-4xl md:text-6xl font-black bg-white/10 p-2 md:p-4 rounded-lg tabular-nums">{{ hours() }}</div>
-                <div class="text-xs md:text-base mt-2 tracking-widest">HORAS</div>
-              </div>
-              <div class="text-center w-20 md:w-auto">
-                <div class="text-4xl md:text-6xl font-black bg-white/10 p-2 md:p-4 rounded-lg tabular-nums">{{ minutes() }}</div>
-                <div class="text-xs md:text-base mt-2 tracking-widest">MIN</div>
-              </div>
-              <div class="text-center w-20 md:w-auto">
-                <div class="text-4xl md:text-6xl font-black bg-white/10 p-2 md:p-4 rounded-lg tabular-nums">{{ seconds() }}</div>
-                <div class="text-xs md:text-base mt-2 tracking-widest">SEG</div>
-              </div>
-            </div>
+        <!-- 1. NEW Hero Section with Lead Capture -->
+        <section id="cadastro" class="min-h-screen flex items-center bg-gradient-to-br from-[#111827] via-[#1f2937] to-[#4c1d95] pt-24 pb-12">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side: Value Proposition -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 animate-fade-in-down">
+                        Transforme seu Bar com as Ferramentas Certas. De Graça.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto md:mx-0 mb-8 animate-fade-in-down" style="animation-delay: 0.2s;">
+                        Entre para a <strong>Lista de Fundadores</strong> e seja um dos primeiros a ter acesso à plataforma gratuita com <strong>Cardápio por QR Code</strong>, <strong>Programa de Fidelidade</strong> e <strong>Jogos Interativos</strong> para engajar seus clientes.
+                    </p>
+                </div>
 
-            <h3 class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 animate-fade-in-down" style="animation-delay: 0.6s;">
-               Tenha as ferramentas que todo bar e restaurante precisa, <strong>de graça</strong>. Ofereça <strong>Cardápio por QR Code</strong>, crie seu <strong>Programa de Fidelidade</strong> e muito mais.
-            </h3>
-            
-            <!-- CTA Buttons -->
-            <div class="mt-10 flex flex-col md:flex-row items-center justify-center gap-4 animate-fade-in-down" style="animation-delay: 0.8s;">
-              <a href="https://app.ligadosbotecos.com.br" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
-                PARA MEU ESTABELECIMENTO
-              </a>
-              <a href="https://app.ligadosbotecos.com.br" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
-                SOU CLIENTE / JOGADOR
-              </a>
+                <!-- Right Side: Form -->
+                <div class="w-full max-w-md mx-auto animate-fade-in-down" style="animation-delay: 0.4s;">
+                    <div class="bg-slate-800/80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl border border-slate-700">
+                        @switch (formStatus()) {
+                            @case ('loading') {
+                                <div class="flex flex-col items-center justify-center h-[24.5rem]">
+                                    <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-yellow-400"></div>
+                                    <p class="text-gray-300 mt-4">Enviando...</p>
+                                </div>
+                            }
+                            @case ('success') {
+                                <div class="flex flex-col items-center justify-center text-center h-[24.5rem]">
+                                    <span class="material-symbols-outlined text-7xl text-green-400 mb-4">task_alt</span>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Inscrição Confirmada!</h3>
+                                    <p class="text-gray-300">
+                                        Parabéns! Você está na lista de Bares Fundadores. Entraremos em contato em breve com seu acesso exclusivo.
+                                    </p>
+                                </div>
+                            }
+                            @default { <!-- Covers 'idle' and 'error' -->
+                                <h3 class="text-2xl font-bold text-center text-yellow-400 mb-6">Acesso VIP para Fundadores</h3>
+                                <form (ngSubmit)="submitForm()" class="space-y-4">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Seu Nome</label>
+                                        <input type="text" id="name" name="name" [(ngModel)]="name"
+                                               class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+                                               placeholder="Ex: João da Silva" required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Seu Melhor E-mail</label>
+                                        <input type="email" id="email" name="email" [(ngModel)]="email"
+                                               class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+                                               placeholder="joao@email.com" required>
+                                    </div>
+                                    <div>
+                                        <label for="barName" class="block text-sm font-medium text-gray-300 mb-1">Nome do seu Bar / Restaurante</label>
+                                        <input type="text" id="barName" name="barName" [(ngModel)]="barName"
+                                               class="w-full bg-gray-700 border border-gray-600 rounded-md p-3 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 transition"
+                                               placeholder="Bar do João" required>
+                                    </div>
+                                    <button type="submit"
+                                            class="w-full !mt-6 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
+                                        {{ formStatus() === 'error' ? 'TENTAR NOVAMENTE' : 'QUERO ACESSO ANTECIPADO' }}
+                                    </button>
+                                </form>
+                                @if (errorMessage()) {
+                                    <p class="text-red-400 text-center mt-4">{{ errorMessage() }}</p>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
             </div>
-
-          </div>
         </section>
 
         <!-- 2. Pain Section -->
@@ -208,39 +232,39 @@
         </section>
 
         <!-- 6. Interactive Games Section -->
-        <section id="games" class="py-20 bg-slate-800">
+        <section id="games" class="py-20 bg-gray-900">
           <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-12">Experimente Nossos Jogos!</h2>
 
             @if (!activeGame()) {
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Card for Tic Tac Toe -->
-                <div (click)="selectGame('tictactoe')" class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
+                <div (click)="selectGame('tictactoe')" class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">grid_on</span>
                   <h3 class="text-2xl font-bold mb-2">Jogo da Velha</h3>
                   <p class="text-gray-400">Um clássico atemporal. Desafie nossa IA e veja se consegue vencer!</p>
                 </div>
                 <!-- Card for Find the Cup -->
-                <div (click)="selectGame('findthecup')" class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
+                <div (click)="selectGame('findthecup')" class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">view_in_ar</span>
                   <h3 class="text-2xl font-bold mb-2">Ache o Copo</h3>
                   <p class="text-gray-400">Preste atenção! Encontre a bolinha e ganhe prêmios. Jogue até 3 vezes por dia.</p>
                 </div>
                 <!-- Card for Shot Roulette -->
-                <div (click)="selectGame('roulette')" class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
+                <div (click)="selectGame('roulette')" class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col items-center">
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">casino</span>
                   <h3 class="text-2xl font-bold mb-2">Roleta de Shot</h3>
                   <p class="text-gray-400">Sorte do dia! Gire a roleta uma vez por dia para ganhar prêmios incríveis.</p>
                 </div>
                 <!-- Card for Coin Flip -->
-                <div class="bg-gray-900 p-8 rounded-lg flex flex-col items-center relative">
+                <div class="bg-slate-800 p-8 rounded-lg flex flex-col items-center relative">
                   <div class="absolute top-2 right-2 bg-sky-600 text-white text-xs font-bold px-2 py-1 rounded-full">NO APP</div>
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">toll</span>
                   <h3 class="text-2xl font-bold mb-2">Cara ou Coroa</h3>
                   <p class="text-gray-400">Desafie outro cliente para uma aposta rápida valendo pontos. Simples, eletrizante e em tempo real no app!</p>
                 </div>
                 <!-- Card for Battleship -->
-                <div class="bg-gray-900 p-8 rounded-lg flex flex-col items-center relative">
+                <div class="bg-slate-800 p-8 rounded-lg flex flex-col items-center relative">
                   <div class="absolute top-2 right-2 bg-sky-600 text-white text-xs font-bold px-2 py-1 rounded-full">NO APP</div>
                   <span class="material-symbols-outlined !text-6xl text-yellow-400 mb-4">directions_boat</span>
                   <h3 class="text-2xl font-bold mb-2">Batalha Naval</h3>
@@ -263,7 +287,7 @@
         </section>
 
         <!-- 7. Benefits Section -->
-        <section class="py-20 bg-gray-900">
+        <section class="py-20 bg-slate-800">
           <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-12">Mais que um App, um Motor de Crescimento para seu Bar.</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -296,16 +320,16 @@
         </section>
 
         <!-- 8. "Why Free?" Section -->
-        <section id="pricing" class="py-20 bg-slate-800">
+        <section id="pricing" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Uai, mas de graça? Qual a pegadinha?</h2>
                 <div class="flex justify-center mt-10">
-                    <div class="bg-gray-900 rounded-lg p-8 max-w-2xl w-full flex flex-col items-center">
+                    <div class="bg-slate-800 rounded-lg p-8 max-w-2xl w-full flex flex-col items-center">
                         <span class="material-symbols-outlined text-6xl text-yellow-400 mb-6">psychology</span>
                         <p class="text-lg text-gray-300 mb-8 max-w-xl">
                             Nenhuma pegadinha. Acreditamos que todo bar, do pequeno ao grande, merece ferramentas de qualidade para crescer. Nosso objetivo é criar a maior comunidade de botequeiros do Brasil, e para isso, precisamos dos melhores bares de BH com a gente. A Liga dos Botecos é e sempre será gratuita para você.
                         </p>
-                        <a href="https://app.ligadosbotecos.com.br" target="_blank" rel="noopener noreferrer" class="w-full max-w-md inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
+                        <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="w-full max-w-md inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
                             Criar Minha Conta Grátis
                         </a>
                     </div>
@@ -314,7 +338,7 @@
         </section>
 
         <!-- 9. FAQ Section -->
-        <section id="faq" class="py-20 bg-gray-900">
+        <section id="faq" class="py-20 bg-slate-800">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
               <h2 class="text-3xl md:text-4xl font-bold">Perguntas Frequentes (FAQ)</h2>
@@ -322,8 +346,8 @@
             </div>
             <div class="max-w-4xl mx-auto space-y-4">
               @for(faq of faqs; track $index) {
-                <div class="bg-slate-800 rounded-lg border border-gray-700 overflow-hidden transition-all duration-300">
-                  <button (click)="toggleFaq($index)" class="w-full flex justify-between items-center text-left p-6 font-semibold text-lg hover:bg-slate-700 focus:outline-none transition-colors">
+                <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden transition-all duration-300">
+                  <button (click)="toggleFaq($index)" class="w-full flex justify-between items-center text-left p-6 font-semibold text-lg hover:bg-slate-800 focus:outline-none transition-colors">
                     <span class="text-white">{{ faq.question }}</span>
                     <span class="material-symbols-outlined text-yellow-400 transition-transform duration-300" [class.rotate-45]="openFaqIndex() === $index">add</span>
                   </button>
@@ -343,7 +367,7 @@
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Bora entrar pra Liga dos Botecos?</h2>
                 <p class="text-lg text-purple-200 mb-8 max-w-2xl mx-auto">Junte-se aos estabelecimentos que estão modernizando o atendimento, fidelizando clientes e deixando a concorrência pra trás. Entre na liga, de graça.</p>
-                <a href="https://app.ligadosbotecos.com.br" target="_blank" rel="noopener noreferrer" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
+                <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
                     Começar Agora (É Grátis)
                 </a>
             </div>
@@ -358,10 +382,11 @@
               </a>
               <p>&copy; 2024 A Liga dos Botecos. Todos os direitos reservados.</p>
               <p class="mt-2 text-sm text-gray-500">KORE SERVICOS DE TECNOLOGIA | CNPJ: 63.135.423/0001-39</p>
-              <div class="flex justify-center space-x-4 mt-4">
-                  <a href="#" class="hover:text-white">Contato</a>
-                  <a href="#" (click)="$event.preventDefault(); navigateTo('privacy')" class="hover:text-white cursor-pointer">Política de Privacidade</a>
-                  <a href="#" (click)="$event.preventDefault(); navigateTo('terms')" class="hover:text-white cursor-pointer">Termos de Serviço</a>
+              <div class="flex justify-center items-center space-x-4 mt-4">
+                  <a href="mailto:contato@ligadosbotecos.com.br" class="hover:text-white">Contato</a>
+                  <a href="#privacy" (click)="$event.preventDefault(); navigateTo('privacy')" class="hover:text-white cursor-pointer">Política de Privacidade</a>
+                  <a href="#terms" (click)="$event.preventDefault(); navigateTo('terms')" class="hover:text-white cursor-pointer">Termos de Serviço</a>
+                  <a href="#unsubscribe" (click)="$event.preventDefault(); navigateTo('unsubscribe')" class="hover:text-white cursor-pointer text-xs">Cancelar Inscrição</a>
               </div>
           </div>
       </footer>
@@ -371,6 +396,9 @@
     }
     @case ('terms') {
       <app-terms-of-use (back)="navigateTo('home')"></app-terms-of-use>
+    }
+    @case ('unsubscribe') {
+      <app-unsubscribe (back)="navigateTo('home')"></app-unsubscribe>
     }
   }
 </div>

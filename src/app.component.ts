@@ -1,35 +1,43 @@
-import { Component, ChangeDetectionStrategy, signal, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, OnInit, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { TicTacToeGameComponent } from './tic-tac-toe-game.component';
 import { FindTheCupGameComponent } from './find-the-cup-game.component';
 import { ShotRouletteGameComponent } from './shot-roulette-game.component';
 import { PrivacyPolicyComponent } from './privacy-policy.component';
 import { TermsOfUseComponent } from './terms-of-use.component';
+import { UnsubscribeComponent } from './unsubscribe.component';
+import { SupabaseService } from './supabase.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    FormsModule,
     TicTacToeGameComponent, 
     FindTheCupGameComponent, 
     ShotRouletteGameComponent, 
     NgOptimizedImage,
     PrivacyPolicyComponent,
-    TermsOfUseComponent
+    TermsOfUseComponent,
+    UnsubscribeComponent
   ]
 })
 export class AppComponent implements OnInit {
+  private supabaseService = inject(SupabaseService);
+
   title = 'A Liga dos Botecos';
   activeGame = signal<string | null>(null);
-  currentPage = signal<'home' | 'privacy' | 'terms'>('home');
+  currentPage = signal<'home' | 'privacy' | 'terms' | 'unsubscribe'>('home');
   isMenuOpen = signal(false);
 
-  // Countdown signals
-  days = signal(0);
-  hours = signal(0);
-  minutes = signal(0);
-  seconds = signal(0);
+  // Form signals
+  name = signal('');
+  email = signal('');
+  barName = signal('');
+  formStatus = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
+  errorMessage = signal('');
 
   // FAQ signal
   openFaqIndex = signal<number | null>(null);
@@ -65,10 +73,7 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  private intervalId: any;
-
   ngOnInit() {
-    this.startCountdown();
     this.handleUrlHash();
   }
 
@@ -78,32 +83,29 @@ export class AppComponent implements OnInit {
         this.currentPage.set('privacy');
     } else if (hash.startsWith('#terms')) {
         this.currentPage.set('terms');
+    } else if (hash.startsWith('#unsubscribe')) {
+        this.currentPage.set('unsubscribe');
     }
   }
 
-  startCountdown() {
-    // Set launch date to November 1, 2025
-    const launchDate = new Date('2025-11-01T00:00:00');
-    const launchTime = launchDate.getTime();
-
-    this.intervalId = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchTime - now;
-
-      if (distance < 0) {
-        clearInterval(this.intervalId);
-        this.days.set(0);
-        this.hours.set(0);
-        this.minutes.set(0);
-        this.seconds.set(0);
-        return;
+  async submitForm() {
+    this.formStatus.set('loading');
+    this.errorMessage.set('');
+    try {
+      if (!this.name().trim() || !this.email().trim() || !this.barName().trim()) {
+        throw new Error('Por favor, preencha todos os campos.');
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(this.email())) {
+          throw new Error('Por favor, insira um e-mail válido.');
       }
 
-      this.days.set(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      this.hours.set(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-      this.minutes.set(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-      this.seconds.set(Math.floor((distance % (1000 * 60)) / 1000));
-    }, 1000);
+      await this.supabaseService.addToWaitingList(this.name(), this.email(), this.barName());
+      this.formStatus.set('success');
+    } catch (error) {
+      this.formStatus.set('error');
+      this.errorMessage.set(error instanceof Error ? error.message : 'Ocorreu um erro desconhecido.');
+    }
   }
 
   selectGame(game: string | null) {
@@ -114,12 +116,12 @@ export class AppComponent implements OnInit {
     this.isMenuOpen.update(open => !open);
   }
 
-  closeMenuAndNavigate(page: 'home' | 'privacy' | 'terms', anchor?: string) {
+  closeMenuAndNavigate(page: 'home' | 'privacy' | 'terms' | 'unsubscribe', anchor?: string) {
     this.isMenuOpen.set(false);
     this.navigateTo(page, anchor);
   }
 
-  navigateTo(page: 'home' | 'privacy' | 'terms', anchor?: string) {
+  navigateTo(page: 'home' | 'privacy' | 'terms' | 'unsubscribe', anchor?: string) {
     this.currentPage.set(page);
     
     // Use a timeout to ensure the DOM is updated before trying to scroll
