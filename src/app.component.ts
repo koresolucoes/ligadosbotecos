@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     },
     {
       question: 'É realmente 100% gratuito? Qual é a pegadinha?',
-      answer: 'Sim, as ferramentas essenciais (cardápio e fidelidade) são e sempre serão 100% gratuitas para os estabelecimentos. Não há pegadinha. Nosso modelo de negócio é baseado em parcerias futuras com grandes marcas, não em mensalidades para os bares.'
+      answer: 'Não é pegadinha, é uma oportunidade. Para os primeiros parceiros, os "Bares Fundadores", o acesso à plataforma completa é <strong>100% gratuito e vitalício</strong>. Em troca, pedimos apenas seu feedback para melhorarmos juntos. Após preenchermos essas vagas limitadas, o acesso será cobrado para novos membros. Essa é sua chance de garantir a gratuidade para sempre.'
     },
     {
       question: 'Preciso de um sistema de PDV específico para usar?',
