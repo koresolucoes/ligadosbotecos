@@ -13,10 +13,9 @@
         <a href="#features" (click)="$event.preventDefault(); navigateTo('home', '#features')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Recursos</a>
         <a href="#games" (click)="$event.preventDefault(); navigateTo('home', '#games')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Jogos</a>
         <a href="#founder-benefits" (click)="$event.preventDefault(); navigateTo('home', '#founder-benefits')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Fundadores</a>
-        <a href="#pricing" (click)="$event.preventDefault(); navigateTo('home', '#pricing')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">Preço</a>
         <a href="#faq" (click)="$event.preventDefault(); navigateTo('home', '#faq')" class="text-gray-300 hover:text-white transition-colors duration-300 font-medium">FAQ</a>
         <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-300">
-          Quero Acesso Grátis
+          Seja um Fundador
         </a>
       </div>
 
@@ -36,10 +35,9 @@
           <a href="#features" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#features')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Recursos</a>
           <a href="#games" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#games')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Jogos</a>
           <a href="#founder-benefits" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#founder-benefits')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Fundadores</a>
-          <a href="#pricing" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#pricing')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">Preço</a>
           <a href="#faq" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#faq')" class="block py-2 text-lg text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
           <a href="#cadastro" (click)="$event.preventDefault(); closeMenuAndNavigate('home', '#cadastro')" class="mt-4 w-full max-w-xs text-center bg-purple-700 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300">
-            Quero Acesso Grátis
+            Seja um Fundador
           </a>
         </div>
       </div>
@@ -55,10 +53,10 @@
                 <!-- Left Side: Value Proposition -->
                 <div class="text-center md:text-left">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4 animate-fade-in-down">
-                        Transforme seu Bar com as Ferramentas Certas. De Graça.
+                       A Arma Secreta para <span class="text-yellow-400">Fidelizar Clientes</span> e Lotar seu Bar.
                     </h1>
                     <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto md:mx-0 mb-8 animate-fade-in-down" style="animation-delay: 0.2s;">
-                        Entre para a <strong>Lista de Fundadores</strong> e seja um dos primeiros a ter acesso à plataforma gratuita com <strong>Cardápio por QR Code</strong>, <strong>Programa de Fidelidade</strong> e <strong>Jogos Interativos</strong> para engajar seus clientes.
+                        Conquiste fãs fiéis com um programa de fidelidade viciante, modernize seu atendimento com um cardápio digital e veja o consumo aumentar com missões e jogos interativos. <strong class="text-white">Seja um Fundador e garanta condições especiais.</strong>
                     </p>
                 </div>
 
@@ -104,7 +102,7 @@
                                     </div>
                                     <button type="submit"
                                             class="w-full !mt-6 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
-                                        {{ formStatus() === 'error' ? 'TENTAR NOVAMENTE' : 'QUERO ACESSO ANTECIPADO' }}
+                                        {{ formStatus() === 'error' ? 'TENTAR NOVAMENTE' : 'QUERO SER UM FUNDADOR' }}
                                     </button>
                                 </form>
                                 @if (errorMessage()) {
@@ -147,12 +145,12 @@
         </section>
 
         <!-- 3. Solution Section -->
-        <section id="how-it-works" class="py-20 bg-slate-800">
+        <section id="how-it-works" class="py-20 bg-gray-900">
           <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">A Ferramenta Gratuita que seu Bar Precisava.</h2>
-              <p class="text-gray-300 mb-4 text-lg">A Liga dos Botecos é a plataforma que te dá, de graça, o que outros cobram caro: <strong>Cardápio Digital com QR Code</strong> e <strong>Programa de Fidelidade</strong>. Modernize seu atendimento e transforme clientes de uma vez em fãs recorrentes.</p>
-              <p class="text-gray-300 text-lg">E pra ficar ainda melhor, a gente adiciona uma camada de gamificação: seus clientes acumulam pontos, cumprem missões e competem em um ranking divertido. É o motivo que faltava pra galera voltar sempre e, claro, consumir mais.</p>
+            <div class="md:w-1/2 border border-slate-600 p-8 rounded-lg">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">Transforme Clientes Casuais em Fãs Recorrentes.</h2>
+              <p class="text-gray-300 mb-4 text-lg">A Liga dos Botecos te dá as ferramentas para criar uma experiência única. Com nosso <strong>Cardápio Digital com QR Code</strong>, você moderniza o atendimento. Com o <strong>Programa de Fidelidade</strong>, você cria um sistema de pontos e recompensas que incentiva o retorno.</p>
+              <p class="text-gray-300 text-lg">E com a camada de <strong>gamificação</strong>, seus clientes competem em rankings e cumprem missões, transformando cada visita em uma disputa divertida que aumenta o consumo.</p>
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative w-72 h-[36rem] bg-gray-900 rounded-[2.5rem] border-[14px] border-black shadow-2xl">
@@ -183,7 +181,7 @@
         <section id="features" class="py-20 bg-slate-800">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold">As Ferramentas que seu Estabelecimento Precisa. De Graça.</h2>
+              <h2 class="text-3xl md:text-4xl font-bold">Um Arsenal Completo para Dominar a Concorrência.</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               
@@ -321,50 +319,35 @@
           </div>
         </section>
 
-        <!-- 8. "Why Free?" Section -->
-        <section id="pricing" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Uai, mas de graça? Qual a pegadinha?</h2>
-                <div class="flex justify-center mt-10">
-                    <div class="bg-slate-800 rounded-lg p-8 max-w-2xl w-full flex flex-col items-center">
-                        <span class="material-symbols-outlined text-6xl text-yellow-400 mb-6">local_offer</span>
-                        <p class="text-lg text-gray-300 mb-8 max-w-xl">
-                            A pegadinha é que essa é uma <strong>oferta por tempo limitado</strong>. Estamos montando um grupo VIP de &quot;Bares Fundadores&quot; aqui em BH. Esses primeiros parceiros terão <strong>acesso vitalício e 100% gratuito</strong> à plataforma completa, em troca de feedback para crescermos juntos.
-                            <br><br>
-                            Assim que preenchermos essas vagas limitadas, o acesso à plataforma será cobrado para novos membros. <strong>A sua chance de garantir o acesso de graça, para sempre, é agora.</strong>
-                        </p>
-                        <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="w-full max-w-md inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 transform hover:scale-105">
-                            Garantir Minha Vaga Grátis
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. Founder Benefits Section -->
-        <section id="founder-benefits" class="py-20 bg-slate-800">
+        <!-- 8. Founder Benefits Section -->
+        <section id="founder-benefits" class="py-20 bg-gray-900">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
               <h2 class="text-3xl md:text-4xl font-bold">Vantagens Exclusivas para <span class="text-yellow-400">Bares Fundadores</span></h2>
-              <p class="text-lg text-gray-400 mt-2">Seja um dos pioneiros e colha os frutos para sempre.</p>
+              <p class="text-lg text-gray-400 mt-2 max-w-3xl mx-auto">Estamos montando um grupo exclusivo de pioneiros. Em troca de feedback para moldarmos a ferramenta perfeita, oferecemos vantagens únicas e por tempo limitado.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">workspace_premium</span>
-                <h3 class="text-2xl font-bold mb-2">Acesso Vitalício Gratuito</h3>
-                <p class="text-gray-400">Enquanto novos membros pagarão pelo acesso, os Bares Fundadores terão todas as ferramentas essenciais, atuais e futuras, 100% de graça. Para sempre.</p>
+                <h3 class="text-2xl font-bold mb-2">Plataforma Completa, Sem Mensalidade</h3>
+                <p class="text-gray-400">Enquanto futuros membros pagarão mensalidades, os Bares Fundadores terão acesso a todas as ferramentas atuais e futuras, sem nenhum custo. Para sempre.</p>
               </div>
-              <div class="bg-gray-900 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center">
+              <div class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center">
                 <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">military_tech</span>
                 <h3 class="text-2xl font-bold mb-2">Selo de Fundador</h3>
                 <p class="text-gray-400">Seu bar receberá um selo exclusivo de "Fundador" em nosso catálogo e no app, destacando seu pioneirismo e apoio inicial ao projeto para todos os clientes.</p>
+              </div>
+               <div class="bg-slate-800 p-8 rounded-lg transform hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center text-center">
+                <span class="material-symbols-outlined !text-5xl text-purple-500 mb-4">hub</span>
+                <h3 class="text-2xl font-bold mb-2">Influência Direta no Produto</h3>
+                <p class="text-gray-400">Sua opinião será crucial. Você terá um canal direto com nossa equipe para sugerir novas funcionalidades e melhorias, moldando uma plataforma perfeita para a sua realidade.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 10. FAQ Section -->
-        <section id="faq" class="py-20 bg-gray-900">
+        <!-- 9. FAQ Section -->
+        <section id="faq" class="py-20 bg-slate-800">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
               <h2 class="text-3xl md:text-4xl font-bold">Perguntas Frequentes (FAQ)</h2>
@@ -372,13 +355,13 @@
             </div>
             <div class="max-w-4xl mx-auto space-y-4">
               @for(faq of faqs; track $index) {
-                <div class="bg-slate-800 rounded-lg border border-gray-700 overflow-hidden transition-all duration-300">
-                  <button (click)="toggleFaq($index)" class="w-full flex justify-between items-center text-left p-6 font-semibold text-lg hover:bg-gray-900 focus:outline-none transition-colors">
+                <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden transition-all duration-300">
+                  <button (click)="toggleFaq($index)" class="w-full flex justify-between items-center text-left p-6 font-semibold text-lg hover:bg-slate-950 focus:outline-none transition-colors">
                     <span class="text-white">{{ faq.question }}</span>
                     <span class="material-symbols-outlined text-yellow-400 transition-transform duration-300" [class.rotate-45]="openFaqIndex() === $index">add</span>
                   </button>
                   @if (openFaqIndex() === $index) {
-                    <div class="p-6 pt-0 text-gray-300 bg-slate-800">
+                    <div class="p-6 pt-0 text-gray-300 bg-gray-900">
                       <p [innerHTML]="faq.answer"></p>
                     </div>
                   }
@@ -388,13 +371,13 @@
           </div>
         </section>
 
-        <!-- 11. Final CTA Section -->
+        <!-- 10. Final CTA Section -->
         <section class="py-20 bg-purple-800 bg-gradient-to-r from-purple-700 to-indigo-800">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Bora entrar pra Liga dos Botecos?</h2>
-                <p class="text-lg text-purple-200 mb-8 max-w-2xl mx-auto">Junte-se aos estabelecimentos que estão modernizando o atendimento, fidelizando clientes e deixando a concorrência pra trás. Entre na liga, de graça.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pronto para Dominar a Cena dos Bares?</h2>
+                <p class="text-lg text-purple-200 mb-8 max-w-2xl mx-auto">Faça parte do grupo exclusivo de Bares Fundadores e saia na frente com as melhores ferramentas de fidelização e engajamento. As vagas são limitadas.</p>
                 <a href="#cadastro" (click)="$event.preventDefault(); navigateTo('home', '#cadastro')" class="inline-block bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-4 px-10 rounded-full text-lg transition-transform duration-300 transform hover:scale-105 shadow-lg">
-                    Começar Agora (É Grátis)
+                    QUERO SER UM BAR FUNDADOR
                 </a>
             </div>
         </section>

@@ -45,11 +45,11 @@ export class AppComponent implements OnInit {
   faqs = [
     {
       question: 'O que é a Liga dos Botecos?',
-      answer: 'É uma plataforma gratuita que oferece as ferramentas essenciais que todo bar e restaurante precisa: <strong>Cardápio Digital com QR Code</strong> e um <strong>Programa de Fidelidade</strong> completo. Tudo isso com uma camada de gamificação para engajar seus clientes e aumentar o consumo.'
+      answer: 'É a plataforma definitiva para bares e restaurantes que buscam fidelizar clientes e aumentar o faturamento. Oferecemos <strong>Cardápio Digital com QR Code</strong>, um <strong>Programa de Fidelidade</strong> gamificado com missões e rankings, e jogos interativos para criar uma experiência única e viciante para seus clientes.'
     },
     {
-      question: 'É realmente 100% gratuito? Qual é a pegadinha?',
-      answer: 'Não é pegadinha, é uma oportunidade. Para os primeiros parceiros, os "Bares Fundadores", o acesso à plataforma completa é <strong>100% gratuito e vitalício</strong>. Em troca, pedimos apenas seu feedback para melhorarmos juntos. Após preenchermos essas vagas limitadas, o acesso será cobrado para novos membros. Essa é sua chance de garantir a gratuidade para sempre.'
+      question: 'O que é o programa de "Bares Fundadores"?',
+      answer: 'É uma parceria por tempo limitado. Estamos selecionando os primeiros bares para usar a plataforma <strong>sem custo de mensalidade, para sempre</strong>. Em troca, buscamos seu feedback para construirmos juntos a melhor ferramenta do mercado. É uma oportunidade única com vagas limitadas antes do lançamento oficial com planos pagos.'
     },
     {
       question: 'Preciso de um sistema de PDV específico para usar?',
