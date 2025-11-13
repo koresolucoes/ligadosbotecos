@@ -8,6 +8,7 @@ import { PrivacyPolicyComponent } from './privacy-policy.component';
 import { TermsOfUseComponent } from './terms-of-use.component';
 import { UnsubscribeComponent } from './unsubscribe.component';
 import { SupabaseService } from './supabase.service';
+import { CookieConsentComponent } from './cookie-consent.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ import { SupabaseService } from './supabase.service';
     NgOptimizedImage,
     PrivacyPolicyComponent,
     TermsOfUseComponent,
-    UnsubscribeComponent
+    UnsubscribeComponent,
+    CookieConsentComponent
   ]
 })
 export class AppComponent implements OnInit {
